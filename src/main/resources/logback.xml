@@ -1,19 +1,16 @@
 <configuration>
 
-    <appender name="STDOUT"
-              class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>
-                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-            </pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <logger name="com.terry.logback" level="INFO" />
+    <logger name="com.terry.logback">
+        <appender-ref ref="STDOUT" />
+    </logger>
 
-    <!-- turn OFF all logging (children can override) -->
-    <root level="OFF">
+    <root level="debug">
         <appender-ref ref="STDOUT" />
     </root>
-
 </configuration>
